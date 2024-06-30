@@ -827,5 +827,7 @@ int main()
 		}
 	}
 	while (option != 0);
+
+	cout << "Testing commit one more time" << endl;
 }
 
