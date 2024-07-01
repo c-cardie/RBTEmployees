@@ -566,15 +566,6 @@ int main()
 	random_device rd2;
 	mt19937 gen2(rd2());
 	uniform_int_distribution<int> AddSalaryDist(lowSalGenAdd, highSalGenAdd);
-	
-	//user specifies salary of employee they want to delete
-	int deleteSalary;
-
-	int lowSalary;
-	int highSalary;
-
-	int lowSalary2;
-	int highSalary2;
 
 	//generate random salaries between 30000 and 200000
 	int lowSalGen = 30000;
@@ -650,6 +641,7 @@ int main()
 	//same function used in delete case statement
 	//time of adding employees is measured
 	cout << "Now, enter a SALARY delete an employee!" << endl;
+	int deleteSalary;
 	cin >> deleteSalary;
 	auto start2 = high_resolution_clock::now();
 	new_node = obj.searchTree(deleteSalary);
@@ -689,8 +681,10 @@ int main()
 	//WILL ONLY WORK IF I INSERT LOW NUMBERS FOR TESTING PREVIOUS FUNCTIONS
 	cout << "Now, give a range of salaries for printing a list of employees!" << endl;
 	cout << "low salary: " << endl;
+	int lowSalary;
 	cin >> lowSalary;
 	cout << "high salary: " << endl;
+	int highSalary;
 	cin >> highSalary;
 	auto start3 = high_resolution_clock::now();
 	obj.searchEmployeesInSalaryRange(lowSalary, highSalary);
@@ -702,8 +696,10 @@ int main()
 	//testing average time it takes to list employees in a certain range
 	cout << "Testing the average time it takes to print salaries in another range" << endl;
 	cout << "Choose a lower bound between 30000 and 60000" << endl;
+	int lowSalary2;
 	cin >> lowSalary2;
 	cout << "Choose an upper bound between 70000 and 200000" << endl;
+	int highSalary2;
 	cin >> highSalary2;
 	cout << "Over how many runs do you want the average to be computed?" << endl;
 	int numMeasurements3;
