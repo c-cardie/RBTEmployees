@@ -560,35 +560,13 @@ int main()
 	int salary{};
 	//int counter = 30000;
 
-	//generate random salaries between 30000 and 200000
-	int lowSalGen = 30000;
-	int highSalGen = 200000;
-
-	//random salary generator between 30000 and 200000
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<int> salaryDist(lowSalGen, highSalGen);
-
 	//generate random salaries between 30000 and 120000
 	int lowSalGenAdd = 30000;
 	int highSalGenAdd = 120000;
-
-	//random salary generator between 30000 and 120000
 	random_device rd2;
 	mt19937 gen2(rd2());
 	uniform_int_distribution<int> AddSalaryDist(lowSalGenAdd, highSalGenAdd);
-
-	//user specifies number of employees to add
-	int addNum;
-
-	//number of times to test functions for average running time
-	int numMeasurements;
-	int numMeasurements2;
-	int numMeasurements3;
-	std::chrono::microseconds totalDurationAdd(0);
-	std::chrono::microseconds totalDurationDelete(0);
-	std::chrono::microseconds totalDurationList(0);
-
+	
 	//user specifies salary of employee they want to delete
 	int deleteSalary;
 
@@ -598,6 +576,13 @@ int main()
 	int lowSalary2;
 	int highSalary2;
 
+	//generate random salaries between 30000 and 200000
+	int lowSalGen = 30000;
+	int highSalGen = 200000;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> salaryDist(lowSalGen, highSalGen);
+	//make 1000 employees
 	for (int i=0; i<1000; i++){
 		Node* new_node = new Node();
 		new_node->firstName = "Employee";
@@ -613,6 +598,7 @@ int main()
 	//function allowing user to add any number of employees
 	//time of adding employees is measured
 	cout << "How many employees do you want to add?" << endl;
+	int addNum;
 	cin >> addNum;
 	auto start = high_resolution_clock::now();
 	for (int i = 0; i <= addNum; i++) {
@@ -636,8 +622,10 @@ int main()
 	//testing average run time to add employees
 	cout << "Now let's test the average run time to add employees" << endl;
 	cout << "How many test runs do you want?" << endl;
+	int numMeasurements;
 	cin >> numMeasurements;
 	cout << "computing the average time it takes to add " << addNum << " employees over " << numMeasurements << " runs" << endl;
+	std::chrono::microseconds totalDurationAdd(0);
 	for (int i = 0; i < numMeasurements; ++i) {
 		auto start4 = std::chrono::high_resolution_clock::now();
 		for (int i = 0; i <= addNum; i++) {
@@ -681,8 +669,10 @@ int main()
 	//testing average run time to delete employees
 	cout << "Now let's test the average run time it takes to delete the " << addNum << " employees you added" << endl;
 	cout << "How many test runs do you want?" << endl;
+	int numMeasurements2;
 	cin >> numMeasurements2;
 	cout << "Computing the average time it takes to delete " << addNum << " employees over " << numMeasurements2 << " runs" << endl;
+	std::chrono::microseconds totalDurationDelete(0);
 	for (int i = 0; i < numMeasurements2 && i <= addNum; ++i) {
 		auto start5 = std::chrono::high_resolution_clock::now();
 		obj.deleteNEmployees(addNum);
@@ -716,8 +706,10 @@ int main()
 	cout << "Choose an upper bound between 70000 and 200000" << endl;
 	cin >> highSalary2;
 	cout << "Over how many runs do you want the average to be computed?" << endl;
+	int numMeasurements3;
 	cin >> numMeasurements3;
 	cout << "Computing average running time to print a list of employees whose salaries range from " << lowSalary2 << " to " << highSalary2 << " over " << numMeasurements3 << " runs" << endl;
+	std::chrono::microseconds totalDurationList(0);
 	for (int i = 0; i < numMeasurements3; ++i) {
 		auto start6 = high_resolution_clock::now();
 		obj.searchEmployeesInSalaryRange(lowSalary, highSalary);
@@ -828,6 +820,6 @@ int main()
 	}
 	while (option != 0);
 
-	cout << "Testing commit one more time" << endl;
+	//cout << "Testing commit one more time" << endl;
 }
 
