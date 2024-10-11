@@ -570,8 +570,9 @@ int main()
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> salaryDist(lowSalGen, highSalGen);
-	//make 1000 employees
-	for (int i=0; i<1000; i++){
+	//make 10,000 employees
+	cout << "Got here 1\n";
+	for (int i = 0; i < 10000; i++){
 		Node* new_node = new Node();
 		new_node->firstName = "Employee";
 		new_node->lastName = to_string(i + 1);
@@ -581,8 +582,8 @@ int main()
 		//cout << new_node->firstName << " " << new_node->lastName << " " << new_node->jobTitle << " " << new_node->data << endl;
 	}
 	//print the default employees
-	//obj.printInorder(obj.getRoot());
-	cout << "Here are 1000 default employees" << endl;
+	obj.printInorder(obj.getRoot());
+	cout << "Here are 10,000 default employees" << endl;
 
     int option;
     
@@ -638,7 +639,7 @@ int main()
 			if (employeeNode != nullptr)
 			{
 				cout << "Value found" << endl;
-				cout << employeeNode << "\n";
+				//cout << employeeNode << "\n";
 				cout << employeeNode->firstName << " " << employeeNode->lastName << " " << employeeNode->jobTitle << " " << employeeNode->data << endl;
 			}
 			else
