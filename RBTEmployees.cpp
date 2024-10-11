@@ -66,10 +66,15 @@ private:
 	}
 
 	NodePtr searchTreeHelper(NodePtr node, int key) {
-		if (node == TNULL || key == node->data) {
+		
+		if (node == TNULL){
+			return nullptr;
+		}
+		
+		if (key == node->data) {
 			return node;
 		}
-
+		
 		if (key < node->data) {
 			return searchTreeHelper(node->left, key);
 		}
@@ -573,10 +578,10 @@ int main()
 		new_node->jobTitle = "teacher";
 		new_node->data = salaryDist(gen);
 		obj.insert(new_node->firstName, new_node->lastName, new_node->jobTitle, new_node->data);
-		cout << new_node->firstName << " " << new_node->lastName << " " << new_node->jobTitle << " " << new_node->data << endl;
+		//cout << new_node->firstName << " " << new_node->lastName << " " << new_node->jobTitle << " " << new_node->data << endl;
 	}
 	//print the default employees
-	obj.printInorder(obj.getRoot());
+	//obj.printInorder(obj.getRoot());
 	cout << "Here are 1000 default employees" << endl;
 
     int option;
@@ -630,9 +635,10 @@ int main()
 			cin >> salary;
 			employeeNode = obj.searchTree(salary);
 
-			if (employeeNode != NULL)
+			if (employeeNode != nullptr)
 			{
 				cout << "Value found" << endl;
+				cout << employeeNode << "\n";
 				cout << employeeNode->firstName << " " << employeeNode->lastName << " " << employeeNode->jobTitle << " " << employeeNode->data << endl;
 			}
 			else
