@@ -2,6 +2,8 @@
 // Used template from Algorithm Tutor
 // Tutorial URL: https://algorithmtutor.com/Data-Structures/Tree/Red-Black-Trees/
 // adapeted for purposes of this assignment
+// Claire Cardie and Tyler Dean
+
 #include <iostream>
 #include <chrono>
 #include <random>
